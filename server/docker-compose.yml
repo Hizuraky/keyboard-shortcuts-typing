@@ -1,0 +1,45 @@
+version: "3.8"
+volumes:
+  php-fpm-socket-api:
+  dynamodb-local-data:
+
+services:
+  web-api:
+    build:
+      context: .
+      dockerfile: ./docker/api/web/Dockerfile
+    depends_on:
+      - app-api
+    ports:
+      - "${WEB_API_PORT}:80"
+    volumes:
+      - ./docker/api/web/default.conf:/etc/nginx/conf.d/default.conf
+      - php-fpm-socket-api:/var/run/php-fpm
+      - ./api:/var/www/html
+    container_name: ks_web
+
+  app-api:
+    build:
+      context: .
+      dockerfile: ./docker/api/app/Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./docker/api/app/php.ini:/usr/local/etc/php/php.ini
+      - php-fpm-socket-api:/var/run/php-fpm
+      - ./api:/var/www/html
+    container_name: ks_app
+
+  db:
+    image: mysql:8.0
+    volumes:
+      - ./docker/db/my.cnf:/etc/mysql/conf.d
+    ports:
+      - "${DB_PORT}:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - TZ=${TZ}
+    container_name: ks_db

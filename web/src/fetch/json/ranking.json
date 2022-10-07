@@ -1,0 +1,34 @@
+{
+  "id": 1,
+  "name": "Visual Studio code",
+  "icon": "url",
+  "challenger": 1192,
+  "myRank": {
+    "rank": 1121,
+    "score": 670
+  },
+  "ranking": [
+    {
+      "id": 11,
+      "name": "ユーザー1",
+      "icon": "url",
+      "score": 3120,
+      "title": {
+        "id": 1,
+        "name": "a",
+        "url": "https://"
+      }
+    },
+    {
+      "id": 12,
+      "name": "ユーザー1",
+      "icon": "url",
+      "score": 3120,
+      "title": {
+        "id": 1,
+        "name": "a",
+        "url": "https://"
+      }
+    }
+  ]
+}

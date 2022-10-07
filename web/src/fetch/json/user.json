@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "name": "ユーザー1",
+  "icon": "base64base64base64base64base64",
+  "email": "user@example.com",
+  "level": 43,
+  "level_point": 120,
+  "play_time": 0,
+  "clear_times": 0,
+  "title": {
+    "id": 1,
+    "name": "string",
+    "url": "string"
+  }
+}

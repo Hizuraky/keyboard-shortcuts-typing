@@ -20,5 +20,7 @@
 ### ログイン情報
 
 Email: user1@example.com
+
 Password: aaaa1111
+
 server > api > database > seeders > UserTableSeeder.php 参照
